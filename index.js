@@ -76,6 +76,10 @@ function determineMessage(event){
         'thankyou'
     ].find(phrase => eventText.indexOf(phrase) > -1);
 
+	const IS_STORY_MESSAGE = [
+        'story'
+    ].find(phrase => eventText.indexOf(phrase) > -1);
+
     const IS_DONUTS_MESSAGE = [
         'donuts',
         'doughnuts'
@@ -94,7 +98,8 @@ function determineMessage(event){
     const IS_THAT_A_FACT = [
 	'areyousure',
 	'isthattrue',
-	'idontbelieveyou'    
+	'idontbelieveyou',
+	'really?'    
     ].find(phrase => eventText.indexOf(phrase) > -1);   
     
 	const IS_CAPYBARA_FACT = [
@@ -314,6 +319,22 @@ function determineMessage(event){
 		'You usually have to options. To stay or to dare',
 		`Everyone's biased towards someone or something`,
 		'People will always judge you'	
+    ];
+	
+	const STORYTIME = [
+        `Some tweens in Germany tried to mug me when I was 16.  I got out of it by claiming that I was Chuck Norris's son and telling them that they didn't want to get on my dad's bad side.`,
+        'My life was saved twice, 8 years apart by a simple pale blue cotton bath towel.  In 2001, I used it to defend myself from 3 knife yeilding drug-dealers and then in 2009, I used it to catch myself after I slipped and went over the balcony railings.',
+        'The owner of the KGB museum in Prague pointed a gun at me and told me to give him my camera.',
+        'I was in a plane crash and a subway riot within 48 hours of eachother.',
+        'I was arrested last month for a video game that I didn't return in 1997.',
+		`I was pronounced dead by a doctor at birth, then revived by a visiting nurse who happened to be observing.  She pulled my body from his hands and said "I've done worse." then siphoned fluids from my lungs and performed CPR.`,
+		'I grew up in a cult.',
+		'I was once escorted to safety in the Australian desert by a pack of wild donkeys.',
+		'I was 12, living in Utah; dude in a blue VW bug started shadowing me.  I freaked out, rant through the neighbors back yard and lost him.  I saw the same guy again on the front page of the newspaper. It was Ted Bundy.',
+		'On June 6th, 2006, my breakfast bill came to $6.66',
+		'My mother secretly gave away my pet guinea pigs to the animal shelter.  The next day at school the shelter did a show and tell in my classroom and brought my guinea pigs.',
+		'When I was 8, my grandma, who practiced black magic, tried to kidnap me from school',
+		`My brother's friend accidently shot me with a BB gun when I was 8.  We had to go to the ER. The nurse asked for the name of the shooter for the police report. When we told her his name, she put her head in her hands and excused herself for a coffee break.  She was him mom.`
     ];
 	
     const BACON_MESSAGES = [
@@ -556,6 +577,9 @@ function determineMessage(event){
     }
     else if (IS_BACON_MESSAGE) {
         listToUse = BACON_MESSAGES;
+    }
+	else if (IS_STORY_MESSAGE) {
+        listToUse = STORYTIME;
     }
     else if (IS_BYE_MESSAGE) {
         listToUse = BYE_MESSAGES;   
