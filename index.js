@@ -127,7 +127,6 @@ function determineMessage(event){
 	
     const IS_TELL_JOKE = [
 		'tellmeajoke',
-		'knockknock',
 		'knowanyjokes'
     ].find(phrase => eventText.indexOf(phrase) > -1);  
 	
@@ -153,7 +152,7 @@ function determineMessage(event){
     const BRAD_BOT_ABUSE  = [
 		'Cool it now, I have other things to do besides receive your praise,',
 		'Ok, this has been fun, but you should probably get back to work now,',
-		'I heard you the first time, Jeeze!',
+		'I heard you the first time, Geeze!',
 		`Keep this up and you'll burn through my free Heroku plan!`,
 		'Stop talking to me', 
 		'Seriously, stop talking',
@@ -194,7 +193,10 @@ function determineMessage(event){
 		'May you never be quite certain as to whether that pressure is a fart or a poop',
 		`It says so right here in your personnel file: Unlikable. Liked by no one. A bitter, unlikable loner who's passing shall not be mourned.`,
 		`I don't want to tell you your business, but if I were you, I'd leave me alone.`,
-		`You know, Awesome ends with me, and Ugly begins with U.`
+		`You know, Awesome ends with me, and Ugly begins with U.`,
+		`Do your neighbors file a noise complaint every time you breathe?`,
+		`I envy people who haven't met you.`,
+		`You look like a before picture...`		
     ];
 
     const BYE_MESSAGES = [
@@ -545,6 +547,9 @@ function determineMessage(event){
     if (bradAbuseDetected(event.user)){
         listToUse = BRAD_BOT_ABUSE;
     }	
+	else if ((event.user.indexOf('UGACR0GE4') > -1) || (event.user.indexOf('U9Z6ZMZPT') > -1)) {
+		listToUse = SPENCER.MESSAGES;
+	}
     else if (IS_THANKS_MESSAGE){
 		listToUse = THANKS_MESSAGES;
     }
