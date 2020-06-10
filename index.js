@@ -74,7 +74,11 @@ function determineMessage(event){
         'thanks',
         'thx',
         'thankyou'
-    ].find(phrase => eventText.indexOf(phrase) > -1);
+		].find(phrase => eventText.indexOf(phrase) > -1);
+		
+		const IS_FAVORITE_PHRASE_MESSAGE = [
+			'favoritephrase',
+	].find(phrase => eventText.indexOf(phrase) > -1);
 
     const IS_DONUTS_MESSAGE = [
         'donuts',
@@ -160,7 +164,18 @@ function determineMessage(event){
 		`Here are the latest rain forest test results: "You are a horrible person." That's what it says: a horrible person. We weren't even testing for that.`,
 		`Okay, look; we both said a lot of things you're going to regret, but I think we can put our difference behind us. For science. You monster.`
     ];
-	
+		const FAVORITE_PHRASE_MESSAGES = [
+			'25',
+			'Buh-bye',
+			'[Tim stares awkwardly in silence at you]',
+			'Soooo....',
+			'No',
+			'Sure',
+			'Well done',
+			'Light on the cheese.',
+			'Dr. Pepper',
+			'I remember when...',
+		]
     const SPENCER_MESSAGES = [
         'Just doing your job',
         'Even you could have done that',
@@ -565,7 +580,10 @@ function determineMessage(event){
     }
 	else if (IS_KNOCK_KNOCK) {
 		listToUse = KNOCK_KNOCK;
-    }
+		}
+		else if (IS_FAVORITE_PHRASE_MESSAGE){
+			listToUse = FAVORITE_PHRASE_MESSAGES;
+		}
     else if (IS_THAT_A_FACT) {
 		listToUse = IS_THAT_A_FACT_MESSAGE;
     } 
